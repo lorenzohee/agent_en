@@ -1,0 +1,25 @@
+.hope_icon{
+    width: 32px;
+}
+
+.hope_logo{
+    width: 100px;
+}
+
+.menu-link{
+    font-size: 32px;
+}
+
+.menu-user{
+    float: right;
+}
+
+.menu-user img{
+    width: 32px;
+    border-radius: 50%;
+}
+
+.active{
+    text-decoration: underline;
+    color: #00a9ff;
+}

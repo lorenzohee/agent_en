@@ -1,0 +1,14 @@
+
+.nav-bar{
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    text-align: right;
+    z-index: 100;
+}
+
+.nav-bar-item{
+    /* font-size: 40px; */
+    margin: 20px 10px 0;
+    /* color: #ff6e00; */
+}

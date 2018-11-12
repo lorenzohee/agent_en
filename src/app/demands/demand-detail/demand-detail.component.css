@@ -1,0 +1,82 @@
+.demand-detail-content .mdl-card .mdl-card__media {
+    background-image: url(/src/assets/images/road_big.jpg);
+    height: 280px;
+    margin-top: 30px;
+    color: white;
+    position: relative;
+}
+
+.demand-detail-content .mdl-card .mdl-card__media h2{
+    position: absolute;
+    bottom: 0px;
+    padding-left: 40px;
+}
+
+.demand_detail_body{
+    background: white;
+}
+
+.demand_detail_header{
+    display: flex;
+    padding: 20px 50px;
+}
+
+.demand_detail_header .section-spacer{
+    flex-grow: 1;
+}
+
+.user_avatar{
+    margin-right: 30px;
+}
+
+.demand_detail_desc{
+    padding: 0 60px;
+}
+
+.user_avatar img{
+    width: 50px; 
+    height: 50px;
+    border-radius:50%
+}
+
+.demand_detail_header .material-icons{
+    margin-left: 12px;
+    vertical-align: text-bottom;
+}
+
+.comment_main{
+    background: #ddd;
+}
+
+.demand-detail-nav {
+    margin: 12px 15px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: white;
+    font-weight: 500;
+}
+
+.demand-detail-nav a{
+    color: white;
+    text-decoration: none;
+}
+
+.demand-detail-nav a button{
+    border-radius: 50%;
+    height: 32px;
+    min-width: 32px;
+    padding: 2px;
+    border-bottom: none;
+    border-right: none;
+    cursor: pointer;
+}

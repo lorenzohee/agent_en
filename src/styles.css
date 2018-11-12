@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; }
+
+body::before{
+    background-size: cover;
+    background-attachment: fixed;
+    content: '';
+    will-change: transform;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    position: fixed;
+    background-image: url('/assets/images/bg_2048.jpg');
+}
+
+.ng-container{
+    margin: 0 auto;
+}
+@media (min-width: 768px){
+    .ng-container {
+        width: 750px;
+    }
+}
+@media (min-width: 992px){
+    .ng-container {
+        width: 970px;
+    }
+}
+@media (min-width: 1200px){
+    .ng-container {
+        width: 1170px;
+    }
+}

@@ -1,0 +1,23 @@
+<div class="nav-bar">
+  <div *ngIf="isHomeRed">
+    <button routerLink='/' mat-fab class="nav-bar-item">
+      <mat-icon aria-label="Example icon-button with a heart icon">home</mat-icon>
+    </button>
+  </div>
+  <div>
+    <button routerLink='/messages' mat-fab class="nav-bar-item">
+      <mat-icon aria-label="Example icon-button with a heart icon">mail_outline</mat-icon>
+    </button>
+  </div>
+  <div>
+    <a routerLink='/users' mat-fab class="nav-bar-item">
+      <mat-icon aria-label="Example icon-button with a heart icon">person</mat-icon>
+    </a>
+  </div>
+  <app-demand-nav></app-demand-nav>
+  <div>
+    <a mat-fab class="nav-bar-item">
+      <mat-icon aria-label="Example icon-button with a heart icon">exit_to_app</mat-icon>
+    </a>
+  </div>
+</div>

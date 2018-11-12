@@ -1,0 +1,30 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<mat-toolbar color="primary">
+  <div class="ng-container">
+    <button
+      type="button"
+      aria-label="Toggle sidenav"
+      mat-icon-button
+      (click)="drawer.toggle()"
+      *ngIf="isHandset$ | async">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+    <button mat-button routerLink="/">
+      <img src="../assets/images/favicon.ico" class="hope_icon" alt="HOPE ICON"><img class="hope_logo" src="../assets/images/hope_logo.svg" alt="HOPE LOGO">
+    </button>
+    <button mat-button routerLink="/demands" class="menu-link" routerLinkActive='active' [routerLinkActiveOptions]="{exact:
+      true}">All</button>
+    <button mat-button routerLink="/demands/favorite" class="menu-link" routerLinkActive='active' [routerLinkActiveOptions]="{exact:
+      true}">Favorite</button>
+    <button mat-button [matMenuTriggerFor]="userAva" class="menu-user">
+      <img src="../assets/images/avatar.jpg" alt="user avatar">
+    </button>
+    <mat-menu #userAva="matMenu" [overlapTrigger]="false">
+        <button mat-menu-item routerLink="/user/info" routerLinkActive="router-link-active" >个人信息</button>
+        <button mat-menu-item routerLink='/user/changepassword' routerLinkActive="router-link-active" >修改密码</button>
+        <button mat-menu-item routerLink="/logout" routerLinkActive="router-link-active" >退出</button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
+<!-- <app-nav-bar></app-nav-bar> -->
+<router-outlet></router-outlet>

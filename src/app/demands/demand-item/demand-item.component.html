@@ -1,0 +1,49 @@
+<div style="display: none">
+  <mat-card class="example-card card-item">
+      <div class="mat-card-image card-item-image">
+        <a href="/demands/detail/{{demand.id}}" mat-card-title class="card-item-title">
+          {{demand.title}}
+        </a>
+      </div>
+      <mat-card-content>
+        <p>
+          {{demand.brief}}
+        </p>
+      </mat-card-content>
+      <div class="card-item-footer">
+        <mat-card-header class="card-item-header">
+          <div mat-card-avatar class="example-header-image"></div>
+          <div class="mat-card-header-text">
+            <mat-card-title>{{demand.username}}</mat-card-title>
+            <mat-card-subtitle>{{demand.created_at}}</mat-card-subtitle>
+          </div>
+          <button mat-icon-button color="warn">
+              <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+          </button>
+          <button mat-icon-button routerLink='/users'>
+            <mat-icon aria-label="Example icon-button with a close icon">close</mat-icon>
+          </button>
+        </mat-card-header>
+      </div>
+    </mat-card>
+</div>
+
+
+
+<mat-card class="demand-card-item">
+  <div class="demand-card-statu" *ngIf="!demand.readed">NEW</div>
+  <a routerLink='/demands/detail/{{demand.id}}' class="demand-card-content">{{demand.title}}
+    <div class="demand-card-brief">{{demand.brief}}</div>
+  </a>
+  <div class="demand-card-favo">
+    <button mat-icon-button color="warn">
+        <mat-icon aria-label="Example icon-button with a heart icon" *ngIf="demand.favoriteId" (click)="unfavoriteDemand(demand)" matTooltip="cancel the favorite">favorite</mat-icon>
+        <mat-icon aria-label="Example icon-button with a heart icon" *ngIf="!demand.favoriteId" (click)="favoriteDemand(demand)" matTooltip="Favorite this demand">favorite_border</mat-icon>
+    </button>
+  </div>
+  <div class="demand-card-del">
+    <button mat-icon-button>
+      <mat-icon aria-label="Example icon-button with a thumb_down icon" (click)="ignoreDemand(demand)" matTooltip="Ignore this demand">close</mat-icon>
+    </button>
+  </div>
+</mat-card>

@@ -1,0 +1,3 @@
+<div class="demand-item-content ng-container">
+    <app-demand-item *ngFor="let demand of demands" [demand]="demand" (ignoreDem)="ignoreDemand($event)"></app-demand-item>
+</div>

@@ -17,6 +17,7 @@ export class DemandDetailComponent implements OnInit {
   ngOnInit() {
     this.route.data.subscribe((data:{demand: Demand})=>{
       this.demand = data.demand;
+      console.log(this.demand)
     })
   }
 

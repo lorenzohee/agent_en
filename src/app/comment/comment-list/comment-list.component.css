@@ -1,0 +1,232 @@
+.comment_main{
+    background: #EEE;
+    min-height: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 32px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.comment_main form{
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    margin-bottom: 16px;
+}
+
+.comment_item{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+header.comment__header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+img.comment__avatar{
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+    margin-right: 16px;
+    vertical-align: middle;
+}
+
+.comment__author{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.comment__text, .comment__answers {
+    margin-left: 60px;
+}
+
+.comment__text{
+    max-width: 100%;
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.comment__answers .comment__text{
+    margin-bottom: 10px;
+}
+
+.comment__author span {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.mdl-textfield {
+    position: relative;
+    font-size: 16px;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 300px;
+    max-width: 100%;
+    margin: 0;
+    padding: 20px 0;
+}
+
+form .mdl-textfield {
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    margin-right: 16px;
+    color: rgb(97, 97, 97);
+}
+
+.mdl-textfield__input {
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,.12);
+    display: block;
+    font-size: 16px;
+    font-family: "Helvetica","Arial",sans-serif;
+    margin: 0;
+    padding: 4px 0;
+    width: 100%;
+    background: 0 0;
+    text-align: left;
+    color: inherit;
+    outline: none;
+}
+
+form .mdl-textfield .mdl-textfield__input {
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+}
+
+form .mdl-textfield input, form .mdl-textfield textarea {
+    resize: none;
+    display: block;
+}
+
+.mdl-textfield--floating-label .mdl-textfield__label {
+    transition-duration: .2s;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+}
+
+.mdl-textfield__label {
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    position: absolute;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: left;
+    color: rgb(158,158,158);
+    font-size: 12px;
+    top: 4px;
+    visibility: visible;
+}
+
+.mdl-textfield__label:after {
+    background-color: rgb(158,158,158);
+    bottom: 20px;
+    content: '';
+    height: 2px;
+    left: 45%;
+    position: absolute;
+    transition-duration: .2s;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    visibility: hidden;
+    width: 10px;
+}
+
+.mdl-button {
+    border: none;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    vertical-align: middle;
+}
+a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .mdl-icon-toggle, .mdl-item, .mdl-radio, .mdl-slider, .mdl-switch, .mdl-tabs__tab {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+}
+
+.mdl-button--icon {
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+}
+
+form button {
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.24);
+    color: white;
+}
+
+.mdl-button:active {
+    background-color: rgba(158,158,158,.4);
+}
+
+.mdl-button .material-icons {
+    vertical-align: middle;
+}
+
+.mdl-button--icon .material-icons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-12px,-12px);
+    transform: translate(-12px,-12px);
+    line-height: 24px;
+    width: 24px;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.mdl-button__ripple-container {
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.mdl-button--icon .mdl-button__ripple-container {
+    border-radius: 50%;
+    -webkit-mask-image: -webkit-radial-gradient(circle,#fff,#000);
+}
+.mdl-ripple {
+    background: #000;
+    border-radius: 50%;
+    height: 50px;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    width: 50px;
+    overflow: hidden;
+}
+
+.mdl-ripple.is-animating {
+    transition: transform .3s cubic-bezier(0,0,.2,1),width .3s cubic-bezier(0,0,.2,1),height .3s cubic-bezier(0,0,.2,1),opacity .6s cubic-bezier(0,0,.2,1);
+    transition: transform .3s cubic-bezier(0,0,.2,1),width .3s cubic-bezier(0,0,.2,1),height .3s cubic-bezier(0,0,.2,1),opacity .6s cubic-bezier(0,0,.2,1),-webkit-transform .3s cubic-bezier(0,0,.2,1);
+}
+
+

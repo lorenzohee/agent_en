@@ -6,6 +6,7 @@ import { DemandsComponent } from './demands.component';
 import { DemandsRoutingModule } from './demands-routing.module';
 import { SharedModule } from '../shared';
 import { DemandItemComponent } from './demand-item/demand-item.component';
+import { CommentListComponent } from '../comment/comment-list/comment-list.component';
 
 @NgModule({
   imports: [
@@ -13,6 +14,12 @@ import { DemandItemComponent } from './demand-item/demand-item.component';
     DemandsRoutingModule,
     SharedModule
   ],
-  declarations: [DemandsComponent, DemandListComponent, DemandDetailComponent, DemandItemComponent]
+  declarations: [
+    DemandsComponent, 
+    DemandListComponent, 
+    DemandDetailComponent, 
+    DemandItemComponent, 
+    CommentListComponent
+  ]
 })
 export class DemandsModule { }

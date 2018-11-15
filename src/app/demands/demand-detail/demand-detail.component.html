@@ -6,7 +6,7 @@
               <h2>{{demand.title}}</h2>
             </div>
             <div class="demand_detail_body">
-                <div class="demand_detail_header">
+                <div class="demand_detail_header mdl-color-text--grey-700">
                     <div class="user_avatar">
                       <img src="{{demand.user_avatar}}" alt="">
                     </div>
@@ -26,39 +26,7 @@
                     </div>
                 </div>
                 <div class="demand_detail_desc" [innerHTML]='demand.content' ></div>
-                <div class="comment_main mdl-color-text--grey-700">
-                  <form>
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded" data-upgraded=",MaterialTextfield">
-                      <textarea rows="1" class="mdl-textfield__input" id="comment"></textarea>
-                      <label for="comment" class="mdl-textfield__label">Join the discussion</label>
-                    </div>
-                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" data-upgraded=",MaterialButton,MaterialRipple">
-                      <i class="material-icons" role="presentation">check</i><span class="visuallyhidden">add comment</span>
-                    <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></button>
-                  </form>
-                  <div class="comment_item" *ngFor="let comment of demand.comments">
-                    <header class="comment__header">
-                      <img src="{{comment.avatar_url}}" class="comment__avatar">
-                      <div class="comment__author">
-                        <span>{{comment.user_name}}</span>
-                        <span>{{comment.created_at}}</span>
-                      </div>
-                    </header>
-                    <div class="comment__text" [innerHTML]='comment.body'></div>
-                    <div class="comment__answers" *ngFor="let child of comment.child">
-                      <div class="comment_item">
-                        <header class="comment__header">
-                          <img src="{{child.avatar_url}}" class="comment__avatar">
-                          <div class="comment__author">
-                            <span>{{child.user_name}}</span>
-                            <span>{{child.created_at}}</span>
-                          </div>
-                        </header>
-                        <div class="comment__text" [innerHTML]='child.body'></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <app-comment-list [comments]='demand.comments'></app-comment-list>
             </div>
           </div>
     

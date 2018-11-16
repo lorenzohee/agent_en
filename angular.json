@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "best-angular-experience": {
+    "angular-agent": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/best-angular-experience",
+            "outputPath": "dist/angular-agent",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -53,18 +53,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "best-angular-experience:build"
+            "browserTarget": "angular-agent:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "best-angular-experience:build:production"
+              "browserTarget": "angular-agent:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "best-angular-experience:build"
+            "browserTarget": "angular-agent:build"
           }
         },
         "test": {
@@ -101,7 +101,7 @@
         }
       }
     },
-    "best-angular-experience-e2e": {
+    "angular-agent-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -109,11 +109,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "best-angular-experience:serve"
+            "devServerTarget": "angular-agent:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "best-angular-experience:serve:production"
+              "devServerTarget": "angular-agent:serve:production"
             }
           }
         },
@@ -129,5 +129,5 @@
       }
     }
   },
-  "defaultProject": "best-angular-experience"
+  "defaultProject": "angular-agent"
 }

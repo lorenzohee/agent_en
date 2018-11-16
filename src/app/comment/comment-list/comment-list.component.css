@@ -165,7 +165,7 @@ form button {
     color: white;
 }
 
-.mdl-button:active {
+.mdl-button:active, .mdl-button:disabled {
     background-color: rgba(158,158,158,.4);
 }
 
@@ -229,4 +229,11 @@ form button {
     transition: transform .3s cubic-bezier(0,0,.2,1),width .3s cubic-bezier(0,0,.2,1),height .3s cubic-bezier(0,0,.2,1),opacity .6s cubic-bezier(0,0,.2,1),-webkit-transform .3s cubic-bezier(0,0,.2,1);
 }
 
+.reply_button{
+    float: right;
+    cursor: pointer;
+}
 
+.reply_button i {
+    vertical-align: bottom;
+}

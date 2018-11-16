@@ -11,7 +11,7 @@ import { DialogOverviewDeleteConfirmDialog } from '../../shared/dialog-overview-
 })
 export class DemandListComponent implements OnInit {
 
-  demands: Demand[] = null;
+  demands:Demand[] = null;
   error;
 
   constructor(private demandService: DemandService, public dialog: MatDialog) { }
@@ -29,14 +29,14 @@ export class DemandListComponent implements OnInit {
     });
   }
 
-  ignoreDemand(demand: Demand){
-    //open the delete confirm dialog
+  ignoreDemand(demand: Demand) {
+    // open the delete confirm dialog
     const dialogRef = this.dialog.open(DialogOverviewDeleteConfirmDialog, {data:{title: '', text: ''}});
 
-    dialogRef.afterClosed().subscribe(result=>{
+    dialogRef.afterClosed().subscribe(result => {
       if(result){
         // invoke http ignore the demand
-        this.demandService.ignoreDemand(demand.id, 1).subscribe(result=>{
+        this.demandService.ignoreDemand(demand.id, 1).subscribe( result=>{
           let demandIndex = 0;
           this.demands.forEach((v,i)=>{
             if(v.id==result.id){

@@ -13,15 +13,15 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
-  it(`should have as title 'best-angular-experience'`, async(() => {
+  it(`should have as title 'angular-agent'`, async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('best-angular-experience');
+    expect(app.title).toEqual('angular-agent');
   }));
   it('should render title in a h1 tag', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to best-angular-experience!');
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to angular-agent!');
   }));
 });

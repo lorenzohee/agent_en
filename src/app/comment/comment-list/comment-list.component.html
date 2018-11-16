@@ -1,19 +1,22 @@
 <div class="comment_main mdl-color-text--grey-700">
-  <form>
+  <form [formGroup]="commentForm" (ngSubmit)='onCommentSubmit()'>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded" data-upgraded=",MaterialTextfield">
-      <textarea rows="1" class="mdl-textfield__input" id="comment"></textarea>
-      <label for="comment" class="mdl-textfield__label">Join the discussion</label>
+      <textarea rows="1" class="mdl-textfield__input" id="comment" formControlName="body" #commentText required></textarea>
+      <label for="comment" class="mdl-textfield__label">发表评论</label>
     </div>
-    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" data-upgraded=",MaterialButton,MaterialRipple" type="submit">
-      <i class="material-icons" role="presentation">check</i><span class="visuallyhidden">add comment</span>
+    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" data-upgraded=",MaterialButton,MaterialRipple" type="submit" [disabled]="!commentForm.valid">
+      <i class="material-icons" role="presentation">check</i><span class="visuallyhidden">发表</span>
     <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></button>
   </form>
   <div class="comment_item" *ngFor="let comment of comments">
     <header class="comment__header">
       <img src="{{comment.avatar_url}}" class="comment__avatar">
       <div class="comment__author">
-        <span>{{comment.user_name}}</span>
-        <span>{{comment.created_at}}</span>
+          <div>{{comment.user_name}}</div>
+          <div>
+            <span>{{comment.created_at}}</span>
+            <span class="reply_button" (click)='replyComment(comment.id, comment.user_name, comment.id)'><i class="material-icons" role="presentation">reply</i>回复</span>
+          </div>
       </div>
     </header>
     <div class="comment__text" [innerHTML]='comment.body'></div>
@@ -22,8 +25,11 @@
         <header class="comment__header">
           <img src="{{child.avatar_url}}" class="comment__avatar">
           <div class="comment__author">
-            <span>{{child.user_name}}</span>
-            <span>{{child.created_at}}</span>
+            <div>{{child.user_name}}</div>
+            <div>
+              <span>{{child.created_at}}</span>
+              <span class="reply_button" (click)='replyComment(comment.id, child.user_name, child.id)'><i class="material-icons" role="presentation">reply</i>回复</span>
+            </div>
           </div>
         </header>
         <div class="comment__text" [innerHTML]='child.body'></div>

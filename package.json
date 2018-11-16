@@ -1,5 +1,5 @@
 {
-  "name": "angular_agent",
+  "name": "angular-agent",
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",

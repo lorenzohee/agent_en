@@ -8,7 +8,7 @@ import {DemandMockData, UserMockData} from '../mockData'
 })
 export class AppComponent {
   color = 'red'
-  title = 'best-angular-experience';
+  title = 'angular-agent';
   constructor(){
     new DemandMockData();
     new UserMockData();

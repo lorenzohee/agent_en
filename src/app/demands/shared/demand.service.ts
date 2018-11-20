@@ -3,16 +3,10 @@ import { HttpClient, HttpResponse, HttpErrorResponse, HttpHeaders } from '@angul
 import { Demand } from './demand.model';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import { environment } from '../../../environments/environment'
+import { environment } from '../../../environments/environment';
 import { Favorite } from './favorite.model';
+import { AuthorizationService } from '../../core/authorization/authorization.service';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'contentType': 'application/json',
-    'Authorization': 'eyJhbGciOiJSUzI1NiJ9.eyJ1dWlkIjoiYTdmOGNmY2MtMjdiNi00NmQ2LWI4NDYtMmZmNjI5ZjcwMjUwIiwiZW1haWwiOiJtYXRpYW5qdW5AaGFpZXIuY29tIn0.pKy4cOj3DOGd8CTM_gxvdI7s4rVHekDj1-mcXy0057tHHb5t3fRqphk4Wi1wS61s26tLdgiCSxAItAShQlDRxYFtcyB95gImQSm1yGsG_ZLEzl3hNDcuh21pl56hYr79RC4CTDnzPKQPb7oy2bpcXd0RyOtD0FfeKV8JY2XhM_jW_tU3Y_fX6EguHJVwpGVUQ5oUpP1cuIzyuwRrwleS89hfGfNErc_Q9gTNifQ1o_oQijIhqOLITk4IHB_EENIq6IDxDcKu8yAX31cGr9vXM85Kr5WlrArAy2dEk8lbCXs3vea747H3UOSCbF9BxAIY5VKyLzU_Zbz7MhsaZa1yqw',
-    'dataType': 'json'
-  })
-};
 const demandUrl = 'assets/demands.json';
 
 @Injectable({
@@ -20,47 +14,62 @@ const demandUrl = 'assets/demands.json';
 })
 export class DemandService {
 
-  constructor(private http: HttpClient) { }
+  httpOptions: Object;
+
+  constructor(private http: HttpClient, private authen: AuthorizationService) {
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'contentType': 'application/json',
+        'Authorization': authen.authen_token.toString(),
+        'dataType': 'json'
+      })
+    };
+  }
 
   getDemands(): Observable<Demand[]> {
-    return this.http.get<Demand[]>(environment.baseApiPath+'/api/v1/demand_blogs/', httpOptions).pipe(
+    return this.http.get<Demand[]>(environment.baseApiPath + '/api/v1/demand_blogs/', this.httpOptions).pipe(
       retry(3),
       catchError(this.handleError)
     );
   }
 
   addDemand(demand: Demand): Observable<Demand> {
-    return this.http.post<Demand>(demandUrl, demand, httpOptions).pipe(
+    return this.http.post<Demand>(demandUrl, demand, this.httpOptions).pipe(
       catchError(this.handleError)
     );
   }
 
   getDemandById(id: number | string): Observable<Demand> {
-    return this.http.get<Demand>(environment.baseApiPath + '/api/v1/demand_blogs/' + id, httpOptions).pipe(
+    return this.http.get<Demand>(environment.baseApiPath + '/api/v1/demand_blogs/' + id, this.httpOptions).pipe(
       retry(3),
       catchError(this.handleError)
     );
   }
 
-  ignoreDemand(demandId: Number, userId: Number):Observable<Demand> {
-    return this.http.put<Demand>(environment.baseApiPath + '/demands/ignoreDemand', {demandId: demandId, userId: userId}, httpOptions).pipe(
+  ignoreDemand(demandId: Number, userId: Number): Observable<Demand> {
+    return this.http.put<Demand>(environment.baseApiPath + '/demands/ignoreDemand', {
+      demandId: demandId,
+      userId: userId}, this.httpOptions).pipe(
       retry(3),
       catchError(this.handleError)
-    )
+    );
   }
 
-  favoriteDemand(demandId: Number, userId: Number):Observable<Favorite> {
-    return this.http.put<Favorite>(environment.baseApiPath + '/demands/favorite', {demandId: demandId, userId: userId}, httpOptions).pipe(
+  favoriteDemand(demandId: Number, userId: Number): Observable<Favorite> {
+    return this.http.put<Favorite>(environment.baseApiPath + '/demands/favorite', {
+      demandId: demandId,
+      userId: userId}, this.httpOptions).pipe(
       retry(3),
       catchError(this.handleError)
-    )
+    );
   }
 
-  unFavoriteDemand(favoriteId: Number):Observable<Favorite> {
-    return this.http.put<Favorite>(environment.baseApiPath + '/demands/unfavorite', {id: favoriteId}, httpOptions).pipe(
+  unFavoriteDemand(favoriteId: Number): Observable<Favorite> {
+    return this.http.put<Favorite>(environment.baseApiPath + '/demands/unfavorite',
+    {id: favoriteId}, this.httpOptions).pipe(
       retry(3),
       catchError(this.handleError)
-    )
+    );
   }
 
   private handleError(error: HttpErrorResponse) {

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {DemandMockData, UserMockData} from '../mockData'
+import {DemandMockData, UserMockData} from '../mockData';
+import { AuthorizationService } from './core/authorization/authorization.service';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +8,20 @@ import {DemandMockData, UserMockData} from '../mockData'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  color = 'red'
+  color = 'red';
   title = 'angular-agent';
-  constructor(){
+  isLogin: boolean;
+  constructor(private auth: AuthorizationService) {
+    this.isLogin = this.auth.isLoggedIn;
     new DemandMockData();
     new UserMockData();
+  }
+
+  logout() {
+    this.auth.logout();
+  }
+
+  getLogStatus(): boolean {
+    return this.isLogin;
   }
 }

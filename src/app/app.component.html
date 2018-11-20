@@ -16,13 +16,14 @@
       true}">All</button>
     <button mat-button routerLink="/demands/favorite" class="menu-link" routerLinkActive='active' [routerLinkActiveOptions]="{exact:
       true}">Favorite</button>
-    <button mat-button [matMenuTriggerFor]="userAva" class="menu-user">
+    <button mat-button routerLink="/login" class="menu-link login-link" *ngIf="!getLogStatus()">登录</button>
+    <button mat-button [matMenuTriggerFor]="userAva" class="menu-user" *ngIf="getLogStatus()">
       <img src="../assets/images/avatar.jpg" alt="user avatar">
     </button>
     <mat-menu #userAva="matMenu" [overlapTrigger]="false">
         <button mat-menu-item routerLink="/user/info" routerLinkActive="router-link-active" >个人信息</button>
         <button mat-menu-item routerLink='/user/changepassword' routerLinkActive="router-link-active" >修改密码</button>
-        <button mat-menu-item routerLink="/logout" routerLinkActive="router-link-active" >退出</button>
+        <button mat-menu-item routerLink="/logout" routerLinkActive="router-link-active" (click)="logout()">退出</button>
     </mat-menu>
   </div>
 </mat-toolbar>

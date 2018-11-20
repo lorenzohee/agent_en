@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DemandListComponent } from './demand-list/demand-list.component';
 import {DemandDetailComponent} from './demand-detail/demand-detail.component';
-import { AuthGuard } from '../auth/auth.guard'
+import { AuthGuard } from '../core/authorization/auth.guard'
 import { DemandDetailResolverService } from './demand-detail/demand-detail-resolver.service';
 
 const routes: Routes = [
@@ -26,6 +26,7 @@ const routes: Routes = [
   {
     path: 'detail/:id',
     component: DemandDetailComponent,
+    canActivate: [AuthGuard],
     resolve: {
       demand: DemandDetailResolverService
     }

@@ -20,7 +20,7 @@ export class DemandService {
     this.httpOptions = {
       headers: new HttpHeaders({
         'contentType': 'application/json',
-        'Authorization': authen.authen_token.toString(),
+        'Authorization': authen.getAuthenToken().toString(),
         'dataType': 'json'
       })
     };
